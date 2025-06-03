@@ -1,0 +1,621 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #04040c; /* Dark navy blue */
+    color: white; /* Text color for readability */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+
+.bubble {
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(77, 168, 218, 0.3);
+    border-radius: 50%;
+    animation: float 6s infinite alternate ease-in-out;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #070716; /* Deep midnight blue */
+    padding: 15px 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 1000; /* Ensures header is always on top */
+}
+.main-content {
+    margin-top: 100px; /* Adjust based on header height */
+}
+
+.header h1 {
+    color: #f3f4f4; /* A bright blue accent */
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'times new roman', cursive;
+    padding-left: 50px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: -30px;
+    padding-right: 60px;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+.nav-links a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: -6px; /* Adjust to space between text and line */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    font-size: 1.1em;
+    text-shadow: 0 0 8px white;
+    color: #f1f1f1;
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Keeps it subtle and neat */
+}
+
+/* Background Design for Home Page*/
+.home-background {
+    min-height: 100vh;
+    background: #000;
+    background-image: url('images/Background_image.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    margin: auto; /* Centers within the page */
+    max-width: 80%; /* Keeps content structured */
+}
+
+.name-title {
+    font-size: 80px;
+    font-weight: 700;
+    font-family: 'Poppins';  /* Or any stylish font */
+    color: #fdfdfd;
+    margin-bottom: 10px;
+    font-style: italic;
+    letter-spacing: 1.5px;
+    
+}
+
+.intro {
+    font-size: 30px;
+    color: #ddd;
+    max-width: 600px;
+    margin-bottom: 60px;
+    font-family: 'Gill Sans' ;
+}
+.btn {
+    background-color: black; /* Black button */
+    color: white; /* White text */
+    padding: 12px 24px;
+    border: 2px solid white; /* White border */
+    border-radius: 30px; /* Curved edges */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* White glow effect */
+    margin-right: 20px;
+}
+
+.btn:hover {
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8); /* Stronger glow on hover */
+    transform: scale(1.05); /* Slight hover zoom effect */
+}
+.about-section {
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia;
+}
+
+/* About me*/
+.about-section {
+    background-color: #050512; /* Dark black-blue */
+    border: 2px solid white; /* White border */
+    border-radius: 15px; /* Curved edges */
+    padding: 20px;
+    max-width: 800px; /* Adjust width */
+    margin: auto; /* Center the box */
+    text-align: left; /* Align text to the left */
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6); /* White glow effect */
+    margin-top: 90px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 30px;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*Certificate Section*/
+.certifications-section {
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia;
+    background-color: #0c0c22; /* Dark black-blue */
+    margin-top: 80px; /* Space from the top */
+    margin-bottom: 0px;
+}
+
+.certifications-section h2{
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia;
+}
+
+
+.certification-grid {
+    display: grid;
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    max-width: 700px;
+    margin:auto;
+}
+
+.cert-box {
+    background: black;
+    border: 2px solid white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    width: 500px;
+    height: 80px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.cert-box h3 {
+    color: white;
+    font-size: 25px;
+}
+
+.cert-box:hover {
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.cert-list {
+    display: none;
+    margin-top: 10px;
+}
+
+.cert-list p {
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #000000;
+  padding: 25px;
+  width: 80%;
+  max-width: 550px;
+  border-radius: 10px;
+  border: 1px solid white;
+  position: relative;
+  text-align: left;
+  box-shadow: none;
+  color: white;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#modalList li {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.scrollable-container {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #5d5b5b #333; /* For Firefox */
+
+}
+
+.close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#modalList li {
+  margin-bottom: 10px;
+}
+#modalList a {
+  color: blue;
+  text-decoration: underline;
+}
+.credential-box {
+  margin-top: 15px;
+  padding: 10px;
+  background: transparent; /* Slightly lighter black */
+  display: inline-block;
+}
+
+.credential-btn {
+  background:#030430;
+  color: white;
+  font-size: 16px;
+  padding: 8px 15px;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background 0.3s, color 0.3s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.credential-btn:hover {
+  box-shadow: 0px 0px 10px rgba(6, 2, 54, 0.5);
+  color: black
+}
+
+/* Skills*/
+.skills-section {
+    background-color: #05050f;
+    text-align: center;
+    padding: 50px;
+    margin-top: 80px; /* Adjust to overlap with header */
+    margin-bottom: 50px;
+}
+
+.skills-container {
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: nowrap; /* Allows wrapping */
+    margin-top: 0px;
+}
+
+.skill-category h3 {
+    color: white;
+    font-size: 25px;
+}
+
+.skills-section h2 {
+    margin-bottom: 40px;
+    margin-top: -30px;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia;
+}
+
+.skill-category {
+   text-align: center;
+   min-width: 200px;
+}
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.skill-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.skill-item p {
+    color: white;
+    font-size: 25px;
+}
+
+.empty {
+    color: gray;
+    font-style: italic;
+}
+
+/* Transition for web page*/
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Education*/
+.education-section {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a0a21;
+  color: #fff;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  font-family: Cambria, Cochin, Georgia;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  padding-left: 2px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+.timeline-item {
+  position: relative;
+  margin: 20px 0;
+  padding-left: 30px;
+  margin-bottom: 50px;
+}
+
+/* timeline dot*/
+.timeline-icon {
+  width: 15px;
+  height: 15px;
+  background: #6535e7;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+  top: 100px;
+}
+
+.education-box {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  color: #f0f0f0
+}
+
+.edu-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.edu-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.edu-desc {
+  margin: 10px 0;
+}
+
+.view-more-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.view-more-link{
+    color: rgb(10, 10, 221);
+    font-family:Arial, Helvetica, sans-serif;
+    transition: 0.3s;
+}
+
+.view-more-link:hover {
+  color: #2a2a5e;
+}
+
+.edu-details-box {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #111;
+  color: white;
+  border: 1px solid white;
+  z-index: 1000;
+  position: relative;
+}
+
+.edu-details-box.show{
+    display: block;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.edu-details-box ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.edu-details-box li {
+  margin-bottom: 6px;
+}
+
+/* Contact*/
+.contact-section {
+  background-color: #080816;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: black;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #ffffff44;
+  color: white;
+  margin-bottom: 30px; 
+}
+
+.contact-box h2 {
+  font-size: 30px;
+  margin-bottom: 0px;
+  font-family: Cambria, Cochin, Georgia;
+}
+
+.input-row {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.input-group {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: white;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #555;
+  background-color: #111;
+  color: white;
+  font-size: 16px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: #00ccff;
+  box-shadow: 0 0 10px #00ccff55;
+}
+
+.full-width {
+  margin-top: 20px;
+}
+
+button[type="submit"] {
+  margin-top: 25px;
+  padding: 12px 30px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #696c6c;
+  color: black;
+}
+
+.social-links {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.social-links img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  filter: brightness(0) invert(1); /* Makes icon white on dark bg */
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px #00ccff;
+}
+
+
