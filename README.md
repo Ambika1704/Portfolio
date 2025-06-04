@@ -62,7 +62,7 @@ Portfolio/
 ├── favicon/
 │   └── ... (favicon files)
 └── images/
-    └── ... (project images/screenshots)
+    └── ... (project images)
 ```
 
 ## 📝 License
